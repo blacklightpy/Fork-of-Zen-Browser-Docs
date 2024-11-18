@@ -24,6 +24,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Replace content with my vault
+        run: |
+          git clone https://github.com/blacklightpy/vaultofknowledge
+          rm -rf content
+          mv vaultofknowledge content
       - name: Install Dependencies
         run: npm ci
       - name: Build Quartz
